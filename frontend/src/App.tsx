@@ -39,42 +39,52 @@ function App() {
         <h1>Explorador de Alumnos</h1>
         <p>
           Usa Spingboot como backend y react + tailwind para frontend con typescript.
+          El codigo se basa en la practica de api anterior y uso tailblocks para el tailwindcss.
         </p>
       </header>
 
-      <section className="stats-grid">
-        <article className="stat-card">
-          <span>Total de Alumnos</span>
-          <strong>{stats.totalAlumnos}</strong>
-        </article>
-        <article className="stat-card">
-          <span>Alumnos filtrados</span>
-          <strong>{stats.filteredAlumnos}</strong>
-        </article>
-        <article className="stat-card">
-          <span>Alumno seleccionado</span>
-          <strong>{stats.selectedAlumnoId}</strong>
-        </article>
+      {/* tailwind para hacer la pesonlisacion que deseo de la tabla con proporcion 7 / 3 */}
+      <section className="grid gap-4 md:grid-cols-[7fr_3fr]">
+        <section>
+              
+          <section className="stats-grid">
+            <article className="stat-card">
+              <span>Total de Alumnos</span>
+              <strong>{stats.totalAlumnos}</strong>
+            </article>
+            <article className="stat-card">
+              <span>Alumnos filtrados</span>
+              <strong>{stats.filteredAlumnos}</strong>
+            </article>
+            <article className="stat-card">
+              <span>Alumno seleccionado</span>
+              <strong>{stats.selectedAlumnoId}</strong>
+            </article>
+          </section>
+
+          <Formulario onEnviar={handleEnviar} />
+
+          {submitError ? <p className="error-text">{submitError}</p> : null}
+
+
+        </section>
+
+        <section>
+          <SearchBar value={searchTerm} onChange={setSearchTerm} />
+
+          
+          <AlumnoList
+            alumnos={filteredAlumnos}
+            selectedAlumnoId={selectedAlumno?.id ?? null}
+            onSelectAlumno={setSelectedAlumno}
+            loading={loading}
+            error={error}
+          />
+
+          
+        </section>
       </section>
 
-      <Formulario onEnviar={handleEnviar} />
-
-      {submitError ? <p className="error-text">{submitError}</p> : null}
-
-
-
-      <SearchBar value={searchTerm} onChange={setSearchTerm} />
-
-      <section className="layout">
-        <AlumnoList
-          alumnos={filteredAlumnos}
-          selectedAlumnoId={selectedAlumno?.id ?? null}
-          onSelectAlumno={setSelectedAlumno}
-          loading={loading}
-          error={error}
-        />
-
-      </section>
     </main>
   );
 }

@@ -13,7 +13,7 @@ function Formulario({ onEnviar }: FormularioProps) {
     }
 
     return (
-        <section className= "hero">
+        <section>
             <h2 className="mb-3 text-lg font-semibold">Formulario</h2>
             <form onSubmit={handleSubmit} className="search-bar">
                 <div className="flex flex-col">

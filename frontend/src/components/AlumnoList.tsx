@@ -32,7 +32,7 @@ export default function AlumnoList({ alumnos, selectedAlumnoId, onSelectAlumno, 
         >
           <span className="post-card-id">Alumno #{alumno.id}</span>
           <strong>{alumno.nombre}</strong>
-          <p>{alumno.grupo}</p>
+          <p>Grupo {alumno.grupo}</p>
         </button>
       ))}
     </section>

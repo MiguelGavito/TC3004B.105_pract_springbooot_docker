@@ -125,7 +125,7 @@ code {
 }
 
 .post-card {
-  width: 100%;
+  width: 50%;
   text-align: left;
   border: 1px solid #dbe4f0;
   background: #fbfdff;
@@ -226,5 +226,16 @@ code {
 
   .post-list {
     max-height: none;
+  }
+}
+.contenido-principal {
+  display: grid;
+  grid-template-columns: 7fr 3fr;
+  gap: 16px;
+}
+
+@media (max-width: 920px) {
+  .contenido-principal {
+    grid-template-columns: 1fr;
   }
 }

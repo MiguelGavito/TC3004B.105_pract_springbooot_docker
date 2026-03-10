@@ -6,11 +6,11 @@ type SearchBarProps = {
 export default function SearchBar({ value, onChange }: SearchBarProps) {
   return (
     <label className="search-bar">
-      <span>Buscar por titulo</span>
+      <span>Buscar por nombre</span>
       <input
         value={value}
         onChange={(event) => onChange(event.target.value)}
-        placeholder="ej. sunt aut facere"
+        placeholder="escriba un nombre"
       />
     </label>
   );
