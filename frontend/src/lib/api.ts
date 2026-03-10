@@ -6,7 +6,7 @@ export type Alumno = {
 
 export type NuevoAlumno = Omit<Alumno, 'id'>
 
-const API_BASE_URL = 'http://localhost:8080/api';
+const API_BASE_URL = '/api';
 
 async function handleResponse<T>(response: Response, defaultMessage: string): Promise<T> {
   if (!response.ok) {

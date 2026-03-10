@@ -1,17 +1,23 @@
 package com.uni.backend.service;
 
-import org.assertj.core.api.PathAssert;
-import org.assertj.core.internal.Paths;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
+import com.uni.backend.model.Item;
+import com.uni.backend.model.ItemCreateRequest;
 
-import scala.collection.immutable.List;
+import tools.jackson.core.type.TypeReference;
+import tools.jackson.databind.ObjectMapper;
 
 @Service
 public class ItemService {
     private final ObjectMapper objectMapper;
-    private final PathAssert filePath = Paths.get("data/items.json");
+    private final Path filePath = Paths.get("data/items.json");
 
     public ItemService(ObjectMapper objectMapper) {
         this.objectMapper = objectMapper;
@@ -33,6 +39,6 @@ public class ItemService {
 
     private void ensureFile() throws IOException {
         if (Files.notExists(filePath.getParent())) Files.createDirectories(filePath.getParent());
-        if (Files.notExists(filePath)) Files.writeString(filePath, "[]");
+        if (Files.notExists(filePath) || Files.size(filePath) == 0) Files.writeString(filePath, "[]");
     }
 }
