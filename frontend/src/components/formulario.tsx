@@ -13,9 +13,9 @@ function Formulario({ onEnviar }: FormularioProps) {
     }
 
     return (
-        <section className="border border-gray-300 p-4">
+        <section className= "hero">
             <h2 className="mb-3 text-lg font-semibold">Formulario</h2>
-            <form onSubmit={handleSubmit} className="flex flex-col gap-3">
+            <form onSubmit={handleSubmit} className="search-bar">
                 <div className="flex flex-col">
                     <label htmlFor="nombre" className="mb-1">
                         Nombre
@@ -42,6 +42,7 @@ function Formulario({ onEnviar }: FormularioProps) {
                     />
                 </div>
 
+                {/* Luego ver si esta pagina la modifico a que se vea como el searchbar.tsx */}
                 <button type="submit" className="border border-gray-300 p-2">
                     Enviar
                 </button>
