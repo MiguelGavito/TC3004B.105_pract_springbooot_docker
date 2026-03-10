@@ -14,4 +14,12 @@
   "id" : 4,
   "nombre" : "Edgar",
   "grupo" : "E"
+}, {
+  "id" : 5,
+  "nombre" : "pedro",
+  "grupo" : "Z"
+}, {
+  "id" : 6,
+  "nombre" : "Antonio",
+  "grupo" : "A"
 } ]
